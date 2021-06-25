@@ -54,6 +54,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FDV32S304/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FDV32S304/env}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/shell}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/example}&quot;"/>
 								</option>
 								<inputType id="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.assembler.input.1105159740" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.assembler.input"/>
 							</tool>
@@ -63,6 +64,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FDV32S304/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FDV32S304/env}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/shell}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/example}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.defs.529501621" name="Defined symbols (-D)" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.defs" useByScannerDiscovery="true" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_DEBUG"/>
@@ -230,4 +232,5 @@
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+	<storageModule moduleId="refreshScope"/>
 </cproject>
