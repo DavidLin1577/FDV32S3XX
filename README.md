@@ -1,2 +1,2 @@
-# phoenix02
-a demo for chip phoenix02
+# FDV32S3XX
+demos for chip fdv32s3xx
