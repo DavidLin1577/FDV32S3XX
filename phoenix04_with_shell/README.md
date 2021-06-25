@@ -1,2 +1,2 @@
-# phoenix02_with_shell
-phoenix02 is a riscv mcu, this is phoenix02 demo with shell
+# phoenix04_with_shell
+phoenix04 is a riscv mcu, this is phoenix04 demo with shell
