@@ -10,34 +10,53 @@
  */
 
 #include "lib_include.h"
+#include "shell.h"
 
-#define LED_PIN GPIO_PIN8
+void efc_init(void)
+{
+	EFC_Init();
+}
+SHELL_EXPORT_CMD(efc_init, efc_init, first step to init efc);
 
-#define LED_ON GPIO_SetPin(LED_PIN)
-#define LED_OFF GPIO_ClrPin(LED_PIN)
 
-#define EEPROM_ADDR 0x10180000
-#define EEPROM_DATA 0x55aa55aa
+int efc_singleprogram(int addr, int type, int data)
+{
+	int ret = 0;
+
+	ret =  EFC_SingleProgram(addr, type, data);
+
+	return ret;
+}
+SHELL_EXPORT_CMD(efc_singleprogram, efc_singleprogram, addr type<0-2> data);
 
 int efc_example(void)
 {
-    printf("test\r\n");
-    GPIO_PinConfigure(LED_PIN, DISABLE, ENABLE, ENABLE, DISABLE, DISABLE);
+	int ret = 0;
+    int addr;
+    int type;
+    int data;
+
     EFC_Init();
 
-    if (EFC_EEPROMWrite(EEPROM_ADDR, EEPROM_DATA, EFC_PRG_WORD) == TRUE) {
-        if (REG32(EEPROM_ADDR) == EEPROM_DATA) {
-            LED_ON;
-            printf("success\r\n");
-        } else {
-            LED_OFF;
-            printf("fail0\r\n");
-        }
+    //write flash
+    addr = 0x1010FE00;
+    type = EFC_PRG_BYTE;
+    data = 0x5a;
+    ret = EFC_SingleProgram(addr, type, data);
+    printf("addr %x %x\n", addr, REG32(addr));
 
-    } else {
-        LED_OFF;
-        printf("fail1\r\n");
-    }
-    while (1)
-        ;
+    addr = 0x1010FE00;
+    type = EFC_PRG_HWORD;
+    data = 0x5aa5;
+    ret = EFC_SingleProgram(addr, type, data);
+    printf("addr %x %x\n", addr, REG32(addr));
+
+    addr = 0x1010FE00;
+    type = EFC_PRG_WORD;
+    data = 0x5aa5cccc;
+    ret = EFC_SingleProgram(addr, type, data);
+    printf("addr %x %x\n", addr, REG32(addr));
+
+	return ret;
 }
+SHELL_EXPORT_CMD(efc_example, efc_example, efc example);
