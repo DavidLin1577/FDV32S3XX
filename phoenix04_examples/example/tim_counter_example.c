@@ -17,6 +17,4 @@ int tim_counter_example(void)
     //TIM_CounterInit(TIM1, TIM_CNT_POLARITY_HIGH, TIM1_CNT_PORT_P8_P9);
     u32 cnt = TIM1->CTVAL;
     printf("cnt:%d\r\n", cnt);
-    while (1)
-        ;
 }

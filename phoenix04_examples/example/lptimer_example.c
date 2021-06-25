@@ -36,6 +36,4 @@ int lptimer_example(void)
     PLIC_SetPriority(LPT_IRQn, 1);
     LPT_ClrIntFlag();
     LPT_EnableIRQ();
-    while (1)
-        ;
 }

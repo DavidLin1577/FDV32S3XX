@@ -36,6 +36,4 @@ int tim_timer_example(void)
     PLIC_SetPriority(TIMER1_IRQn, 1);
     TIM_ClrIntFlag(TIM1);
     TIM_EnableIRQ(TIM1);
-    while (1)
-        ;
 }

@@ -19,6 +19,4 @@
 int tim_pwm_example(void)
 {
     //TIM_PWMInit(TIM1, TIM_PWM_POL_PWM0_PWM1, 1, 50, TIM1_PWM_PORT_P8_P9, 0);
-    while (1)
-        ;
 }

@@ -33,7 +33,4 @@ int gpio_int_example(void)
     GPIO_ClrIntFlag(TEST_PIN);
     GPIO_PinIRQControl(TEST_PIN, ENABLE);
     printf("poll test pin gp08 generate int\r\n");
-
-    while (1) {
-    }
 }
