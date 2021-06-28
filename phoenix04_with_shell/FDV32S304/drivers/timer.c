@@ -444,7 +444,7 @@ void TIM_ClrIntFlag(TIM_Type *pTim)
     }
 }
 /**
- * @brief 获得当前计数�?
+ * @brief 获得当前计数�?
  *
  * @param pTim TIM1、TIM2
  * @return u32 计数结果

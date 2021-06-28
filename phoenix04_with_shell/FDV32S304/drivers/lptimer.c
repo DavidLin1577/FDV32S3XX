@@ -21,9 +21,11 @@
  * note:clk source = lrc  at least 4ms err,
  */
 void LPT_Init(int iClkSrc, int iDel, int iMode) {
-    PARAM_CHECK((iClkSrc != PMU_CR_LPTCLKSEL_LRC) &&
-                (iClkSrc != PMU_CR_LPTCLKSEL_XTL));
+    PARAM_CHECK((iClkSrc != LP_CLKSEL_LRC) &&
+                (iClkSrc != LP_CLKSEL_XTL));
     PARAM_CHECK((iMode != LPT_SIG_TIME_CNT) && (iMode != LPT_PIT_CNT));
+
+    SYSC->CLKENCFG |= SYSC_CLKENCFG_LPTIM;
 
     LPTIM->CFG = (iDel >> 2) - 1;
     if (iMode == LPT_SIG_TIME_CNT) {
