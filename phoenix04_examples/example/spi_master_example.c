@@ -14,9 +14,16 @@
 
 int spi_master_example(void)
 {
-	//need to configure the gpio first
+	//configure gpio
+	GPIO_PinSelect(GPIO_PIN14 | GPIO_PIN15 | GPIO_PIN18 | GPIO_PIN19, PIN_FUNC_2);
 
 	SPI_Init(SPI_MASTER, SPI_CPOL_HIGH, SPI_CPHA_FIST, 10000);
+
+	SPI_ClrCSN();
+
+	//TODO:
+
+	SPI_SetCSN();
 
     return 0;
 }
