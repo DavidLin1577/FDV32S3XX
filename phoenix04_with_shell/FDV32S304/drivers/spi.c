@@ -3,7 +3,7 @@
  * @author 
  * @brief
  * @version 0.1
- * @date 2020-06-27
+ * @date 2021-06-27
  *
  * @copyright Fanhai Data Tech. (c) 2021
  *
@@ -15,40 +15,16 @@
 
 /**
  * @brief  SPI init
- *
- * @param pin :SPI_PIN_12_13_16_17 , SPI_PIN_14_15_19_18
  * @param mode:SPI_MASTER , SPI_SLAVE
  * @param pol:SPI_CPOL_HIGH , SPI_CPOL_LOW
  * @param phase:SPI_CPHA_FIST , SPI_CPHA_MIDD
  * @param freq :set N (Hz)
- * @note 分频系数有限只能是最接近的频率设�?
+ * @note 分频系数有限只能是最接近的频率设置
  */
-void SPI_Init(int pin, int mode, int pol, int phase, int freq)
+void SPI_Init(int mode, int pol, int phase, int freq)
 {
-    SYSC->CLKENCFG |= SYSC_CLKENCFG_SPI | SYSC_CLKENCFG_IOM;
-    PARAM_CHECK((pin != SPI_PIN_12_13_16_17) && (pin != SPI_PIN_14_15_19_18));
-    if (pin == SPI_PIN_12_13_16_17)
-    {
-        IOM->AF0 &= ~IOM_AF0_P12_SEL;
-        IOM->AF0 |= (3 << 24);
-        IOM->AF0 &= ~IOM_AF0_P13_SEL;
-        IOM->AF0 |= (3 << 26);
-        IOM->AF1 &= ~IOM_AF1_P16_SEL;
-        IOM->AF1 |= (3 << 0);
-        IOM->AF1 &= ~IOM_AF1_P17_SEL;
-        IOM->AF1 |= (3 << 2);
-    }
-    else
-    {
-        IOM->AF0 &= ~IOM_AF0_P14_SEL;
-        IOM->AF0 |= (2 << 28);
-        IOM->AF0 &= ~IOM_AF0_P15_SEL;
-        IOM->AF0 |= (2 << 30);
-        IOM->AF1 &= ~IOM_AF1_P18_SEL;
-        IOM->AF1 |= (2 << 4);
-        IOM->AF1 &= ~IOM_AF1_P19_SEL;
-        IOM->AF1 |= (2 << 6);
-    }
+    SYSC->CLKENCFG |= SYSC_CLKENCFG_SPI;
+
     PARAM_CHECK((pol != SPI_CPOL_HIGH) && (pol != SPI_CPOL_LOW));
     PARAM_CHECK((phase != SPI_CPHA_FIST) && (phase != SPI_CPHA_MIDD));
     PARAM_CHECK((mode != SPI_SR_MSTCFSR) && (mode != SPI_SLAVE));

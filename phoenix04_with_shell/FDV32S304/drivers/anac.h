@@ -1,16 +1,16 @@
 /**
  * @file anac.h
- * @author bifei.tang
+ * @author 
  * @brief
  * @version 0.1
- * @date 2020-05-12
+ * @date 2021-06-30
  *
- * @copyright Fanhai Data Tech. (c) 2020
+ * @copyright Fanhai Data Tech. (c) 2021
  *
  */
 
-#ifndef __ANAC_H
-#define __ANAC_H
+#ifndef __ANAC_H__
+#define __ANAC_H__
 #include "phnx04.h"
 
 // register bits definitions
@@ -24,8 +24,8 @@
 #define ANAC_LED_CFG_IIRLED_CC 		BITS(1, 5)
 #define ANAC_LED_CFG_IIRLED_EN 		BIT(0)
 
-#define ANAC_LED_CFG_IBULE_CC_pos  (7) // 0-0x1f:0-310mA step:10mA
-#define ANAC_LED_CFG_IIRLED_CC_pos (1)
+#define ANAC_LED_CFG_IBULE_CC_pos   (7) // 0-0x1f:0-310mA step:10mA
+#define ANAC_LED_CFG_IIRLED_CC_pos  (1)
 
 // pdsens_cfg
 #define ANAC_PDSENS_CFG_CHRG    	BIT(7)
@@ -40,7 +40,7 @@
 #define ANAC_PDSENS_CFG_EN  		BIT(0)
 
 // cmp_cfg
-// #define ANAC_CMP_CFG_FLT    BITS(10, 13)
+// #define ANAC_CMP_CFG_FLT         BITS(10, 13)
 #define ANAC_CMP_CFG_HYSSEL 		BITS(8, 9)
 #define ANAC_CMP_CFG_VINSEL 		BITS(5, 7)
 #define ANAC_CMP_CFG_VIPSEL 		BITS(2, 4)
@@ -238,10 +238,10 @@
 #define ANAC_WPROT_V0 0x5a5a
 #define ANAC_WPROT_V1 0xa5a5
 #define ANAC_WPT_UNLOCK()                                                                                              \
-    {                                                                                                                  \
-        ANAC->WPROT = 0x5a5a;                                                                                          \
-        ANAC->WPROT = 0xa5a5;                                                                                          \
-    }
+{                                                                                                                  \
+    ANAC->WPROT = 0x5a5a;                                                                                          \
+    ANAC->WPROT = 0xa5a5;                                                                                          \
+}
 
 // ADC macro define
 #define ADC_CHN_AIN0     	0
@@ -307,4 +307,4 @@ u32  ADC_GetAverageValue(void);
 BOOL ADC_GetIntFlag(void);
 void ADC_ClrIntFlag(void);
 
-#endif
+#endif /*__ANAC_H__*/

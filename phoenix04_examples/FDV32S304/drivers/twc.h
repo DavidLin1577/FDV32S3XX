@@ -1,6 +1,6 @@
 /**
  * @file twc.h
- * @author bifei.tang
+ * @author 
  * @brief
  * @version 0.1
  * @date 2020-05-12
@@ -170,4 +170,5 @@ void TWC_SwanBusSendStartConfig(ControlStatus clt);
 void TWC_EnableIRQControl(eTansferEnd_Type val);
 void TWC_ClrIntFlag(eTansferEnd_Type val);
 u32  TWC_GetStatusRegData(void);
-#endif
+
+#endif /*__TWC_H__*/

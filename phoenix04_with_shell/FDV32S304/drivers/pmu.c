@@ -1,11 +1,11 @@
 /**
  * @file pmu.c
- * @author bifei.tang
+ * @author 
  * @brief
  * @version 0.1
- * @date 2020-05-12
+ * @date 2021-06-24
  *
- * @copyright Fanhai Data Tech. (c) 2020
+ * @copyright Fanhai Data Tech. (c) 2021
  *
  */
 
@@ -15,13 +15,19 @@
  * @brief PUM init
  *
  */
-void PMU_Init(void) { SYSC->CLKENCFG |= SYSC_CLKENCFG_PMU; }
+void PMU_Init(void) 
+{ 
+    SYSC->CLKENCFG |= SYSC_CLKENCFG_PMU; 
+}
 
 /**
  * @brief PMU deinit
  *
  */
-void PMU_DeInit(void) { SYSC->CLKENCFG &= ~SYSC_CLKENCFG_PMU; }
+void PMU_DeInit(void) 
+{ 
+    SYSC->CLKENCFG &= ~SYSC_CLKENCFG_PMU; 
+}
 
 /**
  * @brief config wake pin
@@ -32,7 +38,8 @@ void PMU_DeInit(void) { SYSC->CLKENCFG &= ~SYSC_CLKENCFG_PMU; }
  * surp,t '|' combination
  *
  */
-void PMU_WakeConfig(int iWkMode, int iWKLevel, int iWKPinEn) {
+void PMU_WakeConfig(int iWkMode, int iWKLevel, int iWKPinEn) 
+{
     PARAM_CHECK((iWkMode != PMU_WKCFG_PMUWKMODE_SYCN) &&
                 (iWkMode != PMU_WKCFG_PMUWKMODE_ASYCN));
     PARAM_CHECK((iWKLevel != PMU_WKCFG_GPIOWKLEV_LOW) &&
@@ -52,8 +59,8 @@ void PMU_WakeConfig(int iWkMode, int iWKLevel, int iWKPinEn) {
  * note：the successive powerdown/deepsleep interval should be more than 2ms at
  * least
  */
-void PMU_EnterSleep(void) {
-    CLEAR_CSR(0xbff, CUSTOMCSR0_SLEEPDEEPEN);
+void PMU_EnterSleep(void) 
+{
     asm volatile("wfi");
 }
 
@@ -63,7 +70,8 @@ void PMU_EnterSleep(void) {
  *note：the successive powerdown/deepsleep interval should be more than 2ms at
  *least
  */
-void PMU_EnterDeepSleep(void) {
+void PMU_EnterDeepSleep(void) 
+{
     WRITE_CSR(0xbff, CUSTOMCSR0_SLEEPDEEPEN);
     asm volatile("wfi");
 }
@@ -72,7 +80,8 @@ void PMU_EnterDeepSleep(void) {
  * @brief enter power down
  *
  */
-void PMU_EnterPowerDown(void) {
+void PMU_EnterPowerDown(void) 
+{
     PMU_WPT_UNLOCK();
     PMU->CR |= 0x0a;
     CLEAR_CSR(0xbff, CUSTOMCSR0_SLEEPDEEPEN);
@@ -83,12 +92,16 @@ void PMU_EnterPowerDown(void) {
  * @brief soft core reset
  *
  */
-void PMU_SoftCoreReset(void) { SET_CSR(0xbff, CUSTOMCSR0_SYSRESETREQ); }
+void PMU_SoftCoreReset(void) 
+{ 
+    SET_CSR(0xbff, CUSTOMCSR0_SYSRESETREQ); 
+}
 /**
  * @brief reset digital region
  *
  */
-void PMU_SoftDigitalReset(void) {
+void PMU_SoftDigitalReset(void) 
+{
     PMU_WPT_UNLOCK();
     PMU->SOFTRST |= (1 << 1);
 }
@@ -96,7 +109,8 @@ void PMU_SoftDigitalReset(void) {
  * @brief reset awo and dig region
  *
  */
-void PMU_SoftChipReset(void) {
+void PMU_SoftChipReset(void) 
+{
     PMU_WPT_UNLOCK();
     PMU->SOFTRST |= (1 << 0);
 }
@@ -106,7 +120,10 @@ void PMU_SoftChipReset(void) {
  *
  * @param val :PMU_INTEN_xxxx,  Can using or('|') combined
  */
-void PMU_SetINTEnable(int val) { PMU->INTEN |= val; }
+void PMU_SetINTEnable(int val) 
+{ 
+    PMU->INTEN |= val; 
+}
 
 /**
  * @brief get interrupt flags
@@ -114,7 +131,8 @@ void PMU_SetINTEnable(int val) { PMU->INTEN |= val; }
  * @param wk_rstREG:PMU_WK_FLAG  , PMU_RST_FLAG
  * @return int
  */
-int PMU_GetIntFlag(int wk_rstREG) {
+int PMU_GetIntFlag(int wk_rstREG) 
+{
     PARAM_CHECK((wk_rstREG != PMU_WK_FLAG) && (wk_rstREG != PMU_RST_FLAG));
     if (wk_rstREG == PMU_WK_FLAG)
         return PMU->WKSTS;
@@ -129,7 +147,8 @@ int PMU_GetIntFlag(int wk_rstREG) {
  * @param val:PMU_WKSTS_xxx , PMU_RSTSTS_xxx
  * @return int
  */
-void PMU_ClrIntFlag(int wk_rstREG, int val) {
+void PMU_ClrIntFlag(int wk_rstREG, int val) 
+{
     PARAM_CHECK((wk_rstREG != PMU_WK_FLAG) && (wk_rstREG != PMU_RST_FLAG));
     if (wk_rstREG == PMU_WK_FLAG)
         PMU->WKSTS = val;
@@ -141,10 +160,16 @@ void PMU_ClrIntFlag(int wk_rstREG, int val) {
  *
  * @return u32 :reg val
  */
-u32 PMU_GetBAKRValue(void) { return PMU->BAKR; }
+u32 PMU_GetBAKRValue(void) 
+{ 
+    return PMU->BAKR; 
+}
 /**
  * @brief set backup register value
  *
  * @param val :val
  */
-void PMU_SetBAKRValue(u32 val) { PMU->BAKR = val; }
+void PMU_SetBAKRValue(u32 val) 
+{ 
+    PMU->BAKR = val; 
+}

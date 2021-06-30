@@ -1,6 +1,6 @@
 /**
  * @file lptimer.c
- * @author bifei.tang
+ * @author 
  * @brief
  * @version 0.1
  * @date 2020-05-12
@@ -15,7 +15,7 @@
 /**
  * @brief LPtimer init
  *
- * @param iClkSrc: PMU_CR_LPTCLKSEL_LRC , PMU_CR_LPTCLKSEL_XTL
+ * @param iClkSrc: LP_CLKSEL_LRC , LP_CLKSEL_XTL
  * @param iDel:  delay ms (lrc 262s,xtl max65s)
  * @param iMode :LPT_SIG_TIME_CNT , LPT_PIT_CNT
  * note:clk source = lrc  at least 4ms err,

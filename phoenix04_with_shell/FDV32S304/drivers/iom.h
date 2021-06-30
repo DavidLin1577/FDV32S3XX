@@ -1,29 +1,30 @@
 /**
  * @file iom.h
- * @author bifei.tang
+ * @author
  * @brief
  * @version 0.1
- * @date 2020-05-12
+ * @date 2021-06-30
  *
- * @copyright Fanhai Data Tech. (c) 2020
+ * @copyright Fanhai Data Tech. (c) 2021
  *
  */
 
-#ifndef __IOM_H
-#define __IOM_H
+#ifndef __IOM_H__
+#define __IOM_H__
+
 #include "phnx04.h"
 
 /*register bit defines*/
 
 // IOM_AF0
-#define IOM_AF0_P15_SEL 	BITS(30, 31)
-#define IOM_AF0_P14_SEL 	BITS(28, 29)
-#define	IOM_AF0_P13_SEL 	BITS(26, 27)
-#define	IOM_AF0_P12_SEL 	BITS(24, 25)
-#define	IOM_AF0_P07_SEL 	BITS(14, 15)
-#define	IOM_AF0_P06_SEL 	BITS(12, 13)
-#define	IOM_AF0_P05_SEL 	BITS(10, 11)
-#define IOM_AF0_P04_SEL 	BITS(8, 9)
+#define IOM_AF0_P15_SEL 	        BITS(30, 31)
+#define IOM_AF0_P14_SEL 	        BITS(28, 29)
+#define	IOM_AF0_P13_SEL 	        BITS(26, 27)
+#define	IOM_AF0_P12_SEL 	        BITS(24, 25)
+#define	IOM_AF0_P07_SEL 	        BITS(14, 15)
+#define	IOM_AF0_P06_SEL 	        BITS(12, 13)
+#define	IOM_AF0_P05_SEL 	        BITS(10, 11)
+#define IOM_AF0_P04_SEL 	        BITS(8, 9)
 
 #define IOM_AF0_P04_SEL_GPIO 		(0 << 8)
 #define IOM_AF0_P04_SEL_JTAG_TCK 	(1 << 8)
@@ -37,12 +38,12 @@
 
 #define IOM_AF0_P06_SEL_GPIO 		(0 << 12)
 #define IOM_AF0_P06_SEL_JTAG_TMS 	(1 << 12)
-#define IOM_AF0_P06_SEL_TIM4_GATE 	(2 << 12)
+#define IOM_AF0_P06_SEL_TIM1_GATE 	(2 << 12)
 #define IOM_AF0_P06_SEL_UART2_RX 	(4 << 12)
 
 #define IOM_AF0_P07_SEL_GPIO 		(0 << 14)
 #define IOM_AF0_P07_SEL_JTAG_TDO 	(1 << 14)
-#define IOM_AF0_P07_SEL_TIM4_EXT 	(2 << 14)
+#define IOM_AF0_P07_SEL_TIM1_EXT 	(2 << 14)
 #define IOM_AF0_P07_SEL_UART2_TX 	(3 << 14)
 
 #define IOM_AF0_P12_SEL_GPIO 		(0 << 24)
@@ -66,10 +67,10 @@
 #define IOM_AF0_P15_SEL_TIM2_TOG 	(3 << 30)
 
 // IOM_AF1
-#define IOM_AF1_P19_SEL 	BITS(6, 7)
-#define IOM_AF1_P18_SEL 	BITS(4, 5)
-#define IOM_AF1_P17_SEL 	BITS(2, 3)
-#define IOM_AF1_P16_SEL 	BITS(0, 1)
+#define IOM_AF1_P19_SEL 	        BITS(6, 7)
+#define IOM_AF1_P18_SEL 	        BITS(4, 5)
+#define IOM_AF1_P17_SEL 	        BITS(2, 3)
+#define IOM_AF1_P16_SEL 	        BITS(0, 1)
 
 #define IOM_AF1_P16_SEL_GPIO 		(0 << 0)
 #define IOM_AF1_P16_SEL_TIM1_TOGN 	(1 << 0)
@@ -93,50 +94,55 @@
 
 
 // IOM_CTL
-#define IOM_CTL_LS_SYNC 	BIT(2)
-#define IOM_CTL_DEBOUNCE 	BIT(1)
-#define IOM_CTL_INTE 		BIT(0)
+#define IOM_CTL_LS_SYNC 	        BIT(2)
+#define IOM_CTL_DEBOUNCE 	        BIT(1)
+#define IOM_CTL_INTE 		        BIT(0)
 
-#define GPIO_PIN0 	(1 << 0)
-#define GPIO_PIN1 	(1 << 1)
-#define GPIO_PIN2 	(1 << 2)
-#define GPIO_PIN3 	(1 << 3)
-#define GPIO_PIN4 	(1 << 4)
-#define GPIO_PIN5 	(1 << 5)
-#define GPIO_PIN6 	(1 << 6)
-#define GPIO_PIN7 	(1 << 7)
-#define GPIO_PIN8 	(1 << 8)
-#define GPIO_PIN9 	(1 << 9)
-#define GPIO_PIN10 	(1 << 10)
-#define GPIO_PIN11 	(1 << 11)
-#define GPIO_PIN12 	(1 << 12)
-#define GPIO_PIN13 	(1 << 13)
-#define GPIO_PIN14 	(1 << 14)
-#define GPIO_PIN15 	(1 << 15)
-#define GPIO_PIN16 	(1 << 16)
-#define GPIO_PIN17 	(1 << 17)
-#define GPIO_PIN18 	(1 << 18)
-#define GPIO_PIN19 	(1 << 19)
-#define GPIO_ALL 	(0xfffff)
+#define GPIO_PIN0 	                (1 << 0)
+#define GPIO_PIN1 	                (1 << 1)
+#define GPIO_PIN2 	                (1 << 2)
+#define GPIO_PIN3 	                (1 << 3)
+#define GPIO_PIN4 	                (1 << 4)
+#define GPIO_PIN5 	                (1 << 5)
+#define GPIO_PIN6 	                (1 << 6)
+#define GPIO_PIN7 	                (1 << 7)
+#define GPIO_PIN8 	                (1 << 8)
+#define GPIO_PIN9 	                (1 << 9)
+#define GPIO_PIN10 	                (1 << 10)
+#define GPIO_PIN11 	                (1 << 11)
+#define GPIO_PIN12 	                (1 << 12)
+#define GPIO_PIN13 	                (1 << 13)
+#define GPIO_PIN14 	                (1 << 14)
+#define GPIO_PIN15 	                (1 << 15)
+#define GPIO_PIN16 	                (1 << 16)
+#define GPIO_PIN17 	                (1 << 17)
+#define GPIO_PIN18 	                (1 << 18)
+#define GPIO_PIN19 	                (1 << 19)
+#define GPIO_ALL 	                (0xfffff)
 
 // extern define
-#define PIN_INT_TYPE_EDGE 	0
-#define PIN_INT_TYPE_LEVEL 	1
+#define PIN_FUNC_0                  (0)
+#define PIN_FUNC_1                  (1)
+#define PIN_FUNC_2                  (2)
+#define PIN_FUNC_3                  (3)
 
-#define PIN_INT_POL_LOW 	0
-#define PIN_INT_POL_HIGH 	1
+#define PIN_INT_TYPE_EDGE 	        (0)
+#define PIN_INT_TYPE_LEVEL 	        (1)
+
+#define PIN_INT_POL_LOW 	        (0)
+#define PIN_INT_POL_HIGH 	        (1)
 
 // extern function declare
 void GPIO_PinSelect(int pin, int fun);
 void GPIO_PinConfigure(int pin, int analogEn, int outputEn, int puEn, int pdEn, int outOpenDrainEn);
 void GPIO_PinConfigDrive(int pin, ControlStatus ctl);
-int GPIO_GetData(void);
+int  GPIO_GetData(void);
 void GPIO_SetPin(int pin);
 void GPIO_ClrPin(int pin);
 void GPIO_PinIntConfig(int pin, int type, int polarity);
 void GPIO_GlobleIRQControl(int syncDisEn, int debounceEn, int en);
 void GPIO_PinIRQControl(int pin, int en);
-int GPIO_GetIntFlag(void);
+int  GPIO_GetIntFlag(void);
 void GPIO_ClrIntFlag(int pin);
 
-#endif
+#endif/*__IOM_H__*/

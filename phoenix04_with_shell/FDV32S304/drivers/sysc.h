@@ -1,6 +1,6 @@
 /**
  * @file sys.h
- * @author bifie.tang
+ * @author 
  * @brief
  * @version 0.1
  * @date 2020-05-12
@@ -9,8 +9,8 @@
  *
  */
 
-#ifndef __SYSC_H
-#define __SYSC_H
+#ifndef __SYSC_H__
+#define __SYSC_H__
 
 #include "phnx04.h"
 
@@ -33,11 +33,11 @@
 
 #define SYSC_WRPROCFG_V0 	0x5a5a
 #define SYSC_WRPROCFG_V1 	0xa5a5
-#define SYSC_WPT_UNLOCK()                                                      \
-    {                                                                          \
-        SYSC->WRPROCFG = 0x5a5a;                                               \
-        SYSC->WRPROCFG = 0xa5a5;                                               \
-    }
+#define SYSC_WPT_UNLOCK()           \
+{                                   \
+    SYSC->WRPROCFG = 0x5a5a;        \
+    SYSC->WRPROCFG = 0xa5a5;        \
+}
 
 // SYSC_CLKENCFG
 #define SYSC_CLKENCFG_TWC_MRCK 		BIT(21)
@@ -139,4 +139,5 @@ void SYSC_SetANAC_CLKDiv(int div, int m500kDiv);
 void SYSC_SetTimer1ClkDiv(int div);
 void SYSC_SetTimer2ClkDiv(int div);
 void SYSC_TestClkOutControl(int div, ControlStatus clt);
-#endif
+
+#endif /*__SYSC_H__*/

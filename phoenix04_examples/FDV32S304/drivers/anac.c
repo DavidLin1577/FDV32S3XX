@@ -1,11 +1,11 @@
 /**
  * @file anac.c
- * @author bifei.tang
+ * @author 
  * @brief
  * @version 0.1
- * @date 2020-05-12
+ * @date 2021-06-30
  *
- * @copyright Fanhai Data Tech. (c) 2020
+ * @copyright Fanhai Data Tech. (c) 2021
  *
  */
 
@@ -17,7 +17,8 @@
  *
  * @param freq :anac module freq (kHz)
  */
-void ANAC_Init(int freq) {
+void ANAC_Init(int freq) 
+{
     SYSC->CLKENCFG |= SYSC_CLKENCFG_ANAC;
     SystemCoreClockUpdate();
     int tmp = SystemCoreClock / 1000 / freq;
@@ -32,7 +33,8 @@ void ANAC_Init(int freq) {
  * @brief anac deinit
  *
  */
-void ANAC_DeInit(void) {
+void ANAC_DeInit(void) 
+{
     int i;
     SYSC_WPT_UNLOCK();
     SYSC->MSFTRSTCFG |= SYSC_MSFTRSTCFG_ANAC;
@@ -45,7 +47,8 @@ void ANAC_DeInit(void) {
  * @brief 模拟电源使能
  *
  */
-void ANAC_AnalogPowerEn(void) {
+void ANAC_AnalogPowerEn(void) 
+{
     ANAC_WPT_UNLOCK();
     ANAC->ANAC_CFG |= ANAC_ANAC_CFG_BGR_EN;
     {
@@ -75,7 +78,8 @@ void ANAC_AnalogPowerEn(void) {
  * @note ：调用此函数后要进行AD通道的IO口设置为模拟口与选择模拟功能为AD输入
  */
 void ADC_Init(int chn, int buffEn, int verfSel, int verfVol, int smpTimes,
-              int smpCycle) {
+              int smpCycle) 
+{
     ANAC->ADC_CFG = (chn << 7) | (verfSel << 4) | (verfVol << 1);
     if (buffEn == ENABLE) {
         ANAC->ADC_CFG |= (1 << 6);

@@ -1,6 +1,6 @@
 /**
  * @file lib_include.h
- * @author bifei.tang
+ * @author 
  * @brief
  * @version 0.1
  * @date 2020-05-12
@@ -8,6 +8,9 @@
  * @copyright Fanhai Data Tech. (c) 2020
  *
  */
+
+#ifndef __LIB_INCLUDE_H__
+#define __LIB_INCLUDE_H__
 
 // firmware include file
 #include "anac.h"
@@ -50,3 +53,5 @@ extern int __wrap_printf(const char *fmt, ...);
 #else
 #define printf(...)
 #endif
+
+#endif /*__LIB_INCLUDE_H__*/

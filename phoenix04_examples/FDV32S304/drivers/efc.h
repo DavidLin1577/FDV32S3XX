@@ -9,8 +9,8 @@
  *
  */
 
-#ifndef __EFC_H
-#define __EFC_H
+#ifndef __EFC_H__
+#define __EFC_H__
 #include "phnx04.h"
 
 /*register bit definitions */
@@ -101,4 +101,4 @@ eReturnType EFC_FlashPageWrite(u32 u32Addr, u32 *pu32Dat, u32 u32Len,
                                u32 u32PrgType);
 BOOL EFC_EEPROMWrite(u32 addr, int iPrgType, u32 data);
 
-#endif
+#endif /*__EFC_H__*/

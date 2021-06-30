@@ -1,6 +1,6 @@
 /**
  * @file sysc.c
- * @author bifei.tang
+ * @author 
  * @brief
  * @version 0.1
  * @date 2020-05-12
@@ -14,12 +14,12 @@
 /**
  * @brief select system clock source
  *
- * @param clkSrc :SYSC_CLK_SRC_HRC  , SYSC_CLK_SRC_LRC , SYSC_CLK_SRC_XTH ,
- * SYSC_CLK_SRC_XTL
+ * @param clkSrc :LP_CLKSEL_LRC , LP_CLKSEL_XTL
  */
-void SYSC_SelectClockSource(int clkSrc) {
-    PARAM_CHECK((clkSrc != SYSC_CLK_SRC_HRC) && (clkSrc != SYSC_CLK_SRC_LRC) &&
-                (clkSrc != SYSC_CLK_SRC_XTH) && (clkSrc != SYSC_CLK_SRC_XTL));
+void SYSC_SelectClockSource(int clkSrc) 
+{
+    PARAM_CHECK((iClkSrc != LP_CLKSEL_LRC) &&
+                (iClkSrc != LP_CLKSEL_XTL));
     SYSC_WPT_UNLOCK();
     SYSC->CLKCTRCFG &= ~SYSC_CLKCTRCFG_SYS_CLK_SEL;
     SYSC_WPT_UNLOCK();
@@ -31,7 +31,8 @@ void SYSC_SelectClockSource(int clkSrc) {
  *
  * @param div :DIV1-128
  */
-void SYSC_SetAPBCLKDiv(int div) {
+void SYSC_SetAPBCLKDiv(int div) 
+{
     PARAM_CHECK((div < DIV1) || (div > DIV128));
     SYSC_WPT_UNLOCK();
     SYSC->CLKCTRCFG &= ~SYSC_CLKCTRCFG_APB_CLK_DIV;
@@ -43,7 +44,8 @@ void SYSC_SetAPBCLKDiv(int div) {
  *
  * @param div :DIV1-128
  */
-void SYSC_SetAHBCLKDiv(int div) {
+void SYSC_SetAHBCLKDiv(int div) 
+{
     PARAM_CHECK((div < DIV1) || (div > DIV128));
     SYSC_WPT_UNLOCK();
     SYSC->CLKCTRCFG &= ~SYSC_CLKCTRCFG_AHB_CLK_DIV;
@@ -57,7 +59,8 @@ void SYSC_SetAHBCLKDiv(int div) {
  * @param module:  PRST_XX,支持或操作一次设置多个pin
  *
  */
-void SYSC_ResetPeripher(eRSTP_Type module) {
+void SYSC_ResetPeripher(eRSTP_Type module) 
+{
     int i;
     SYSC_WPT_UNLOCK();
     SYSC->MSFTRSTCFG = module;
@@ -113,7 +116,7 @@ void SYSC_SetTimer2ClkDiv(int div) {
 /**
  * @brief 测试时钟输出控制
  *
- * @param div 分频（div�?0-127�?+1�?*2
+ * @param div 分频（div（0-127）+1）*2
  * @param clt
  */
 void SYSC_TestClkOutControl(int div,ControlStatus clt)

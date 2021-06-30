@@ -1,6 +1,6 @@
 /**
  * @file timer.c
- * @author bifei.tang
+ * @author 
  * @brief
  * @version 0.1
  * @date 2020-05-12
@@ -444,7 +444,7 @@ void TIM_ClrIntFlag(TIM_Type *pTim)
     }
 }
 /**
- * @brief 获得当前计数�?
+ * @brief 获得当前计数值
  *
  * @param pTim TIM1、TIM2
  * @return u32 计数结果

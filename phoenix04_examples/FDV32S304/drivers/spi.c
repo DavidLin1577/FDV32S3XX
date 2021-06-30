@@ -3,7 +3,7 @@
  * @author 
  * @brief
  * @version 0.1
- * @date 2020-06-27
+ * @date 2021-06-27
  *
  * @copyright Fanhai Data Tech. (c) 2021
  *
@@ -19,7 +19,7 @@
  * @param pol:SPI_CPOL_HIGH , SPI_CPOL_LOW
  * @param phase:SPI_CPHA_FIST , SPI_CPHA_MIDD
  * @param freq :set N (Hz)
- * @note 分频系数有限只能是最接近的频率
+ * @note 分频系数有限只能是最接近的频率设置
  */
 void SPI_Init(int mode, int pol, int phase, int freq)
 {

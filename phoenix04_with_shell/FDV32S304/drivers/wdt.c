@@ -1,17 +1,17 @@
 /**
  * @file wdt.c
- * @author bifei.tang
+ * @author 
  * @brief
- * @version 0.2
+ * @version 0.1
  * @date 2021-06-26
  *
  * @copyright Fanhai Data Tech. (c) 2020
  *
  */
 
+#include "wdt.h"
 #include "sysc.h"
 #include "pmu.h"
-#include "wdt.h"
 
 /**
  * @brief wdt init

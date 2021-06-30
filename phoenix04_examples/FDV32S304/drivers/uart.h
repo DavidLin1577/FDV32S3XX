@@ -1,6 +1,6 @@
 /**
  * @file uart.h
- * @author bifei.tang
+ * @author 
  * @brief
  * @version 0.1
  * @date 2020-05-12
@@ -9,8 +9,8 @@
  *
  */
 
-#ifndef __UART_H
-#define __UART_H
+#ifndef __UART_H__
+#define __UART_H__
 #include "phnx04.h"
 
 /*register bit definitions */
@@ -85,4 +85,4 @@ void UART_SetAddrAndMask(UART_Type *psUart, u8 addr, u8 addrCMPBits);
 u32 UART_GetIntFlag(UART_Type *psUart);
 void UART_ClrIntFlag(UART_Type *psUart, u32 val);
 
-#endif
+#endif /*__UART_H__*/

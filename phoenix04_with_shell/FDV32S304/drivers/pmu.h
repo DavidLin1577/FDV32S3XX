@@ -1,6 +1,6 @@
 /**
  * @file pmu.h
- * @author bifei.tang
+ * @author 
  * @brief
  * @version 0.1
  * @date 2020-05-12
@@ -107,9 +107,9 @@ void PMU_SoftCoreReset(void);
 void PMU_SoftDigitalReset(void);
 void PMU_SoftChipReset(void);
 void PMU_SetINTEnable(int val);
-int PMU_GetIntFlag(int wk_rstREG);
+int  PMU_GetIntFlag(int wk_rstREG);
 void PMU_ClrIntFlag(int wk_rstREG, int val);
-u32 PMU_GetBAKRValue(void);
+u32  PMU_GetBAKRValue(void);
 void PMU_SetBAKRValue(u32 val);
 
 #endif
