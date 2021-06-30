@@ -9,9 +9,9 @@
  *
  */
 
+#include "wdt.h"
 #include "sysc.h"
 #include "pmu.h"
-#include "wdt.h"
 
 /**
  * @brief wdt init

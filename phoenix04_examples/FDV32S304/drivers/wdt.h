@@ -39,8 +39,8 @@ typedef enum _OV_MODE
 }
 #define WDT_ClrCount()                \
 {                                     \
-    WDT_RST_REG = WDT_START_RST_V0;   \
-    WDT_RST_REG = WDT_START_RST_V1;   \
+	WDT->RST = WDT_START_RST_V0;      \
+	WDT->RST = WDT_START_RST_V1;      \
 }
 #define WDT_ClrIntFlag()              \
 {                                     \

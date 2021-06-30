@@ -101,6 +101,7 @@ SECTIONS
     KEEP (*(EXCLUDE_FILE (*crtend.o *crtend?.o ) .dtors))
     KEEP (*(SORT(.dtors.*)))
     KEEP (*(.dtors))
+    *(.rodata .rodata.*)
   } >flash AT>flash 
 
     . = ALIGN(4);
@@ -121,7 +122,6 @@ SECTIONS
   .data          :
   {
     *(.rdata)
-    *(.rodata .rodata.*)
     *(.gnu.linkonce.r.*)
     *(.data .data.*)
     *(.gnu.linkonce.d.*)
@@ -135,7 +135,7 @@ SECTIONS
     *(.srodata.cst4)
     *(.srodata.cst2)
     *(.srodata .srodata.*)
-     _shell_command_start = .;
+    _shell_command_start = .;
     KEEP (*(shellCommand))
     _shell_command_end = .;
   } >ram AT>flash 
