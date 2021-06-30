@@ -45,7 +45,7 @@
 #define SPI_PIN_14_15_19_18   (1)
 
 // extern function declare
-void SPI_Init(int pin, int mode, int pol, int phase, int freq);                                                                                                                                                                      
+void SPI_Init(int mode, int pol, int phase, int freq);
 void SPI_DeInit(void);
 void SPI_MasterConflictIRQControl(ControlStatus ctl);
 void SPI_EnableIRQ(void);

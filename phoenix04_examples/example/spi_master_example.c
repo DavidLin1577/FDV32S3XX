@@ -14,6 +14,10 @@
 
 int spi_master_example(void)
 {
+	//need to configure the gpio first
+
+	SPI_Init(SPI_MASTER, SPI_CPOL_HIGH, SPI_CPHA_FIST, 10000);
+
     return 0;
 }
 SHELL_EXPORT_CMD(spi_master_example, spi_master_example, spi master example);
