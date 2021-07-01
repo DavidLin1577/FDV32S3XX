@@ -1,6 +1,6 @@
 /**
  * @file   efc.h
- * @author bifei.tang
+ * @author 
  * @brief
  * @version 0.1
  * @date 2020-05-12
@@ -44,11 +44,11 @@
 
 #define EFC_WPT_VALUE_0 	0xc3
 #define EFC_WPT_VALUE_1 	0x3c
-#define EFC_WPT_UNLOCK()                                                       \
-    {                                                                          \
-        EFC->WPT = EFC_WPT_VALUE_0;                                            \
-        EFC->WPT = EFC_WPT_VALUE_1;                                            \
-    }
+#define EFC_WPT_UNLOCK()            \
+{                                   \
+    EFC->WPT = EFC_WPT_VALUE_0;     \
+    EFC->WPT = EFC_WPT_VALUE_1;     \
+}
 
 // EFC_OPR
 #define EFC_OPR_WE 			BIT(7)
