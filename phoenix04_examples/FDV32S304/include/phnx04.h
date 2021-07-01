@@ -8,8 +8,8 @@
  * @copyright Fanhai Data Tech. (c) 2021
  *
  */
-#ifndef _PHNX04_H
-#define _PHNX04_H
+#ifndef __PHNX04_H__
+#define __PHNX04_H__
 
 #include "risc_v_csr.h"
 #include "system_phnx04.h"
@@ -318,4 +318,4 @@ extern int __wrap_printf(const char *fmt, ...);
 #ifdef cplusplus
 }
 #endif
-#endif /* Phonix02_H */
+#endif /* __PHNX04_H__ */

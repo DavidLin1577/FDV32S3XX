@@ -35,27 +35,68 @@ int efc_example(void)
     int addr;
     int type;
     int data;
+    int flash_addr  = 0x10107f00;
+    int nvr_addr    = 0x10140200;
+    int e2prom_addr = 0x10180000;
 
     EFC_Init();
 
     //write flash
-    addr = 0x1010FE00;
+    addr = flash_addr;
     type = EFC_PRG_BYTE;
     data = 0x5a;
     ret = EFC_SingleProgram(addr, type, data);
-    printf("addr %x %x\n", addr, REG32(addr));
+    printf("addr %x %x ret %d\n", addr, REG8(addr), ret);
 
-    addr = 0x1010FE00;
+    addr = flash_addr;
     type = EFC_PRG_HWORD;
     data = 0x5aa5;
     ret = EFC_SingleProgram(addr, type, data);
-    printf("addr %x %x\n", addr, REG32(addr));
+    printf("addr %x %x ret %d\n", addr, REG16(addr), ret);
 
-    addr = 0x1010FE00;
+    addr = flash_addr;
     type = EFC_PRG_WORD;
     data = 0x5aa5cccc;
     ret = EFC_SingleProgram(addr, type, data);
-    printf("addr %x %x\n", addr, REG32(addr));
+    printf("addr %x %x ret %d\n", addr, REG32(addr), ret);
+
+    //write nvr
+    addr = nvr_addr;
+    type = EFC_PRG_BYTE;
+    data = 0x5a;
+    ret = EFC_SingleProgram(addr, type, data);
+    printf("addr %x %x ret %d\n", addr, REG8(addr), ret);
+
+    addr = nvr_addr;
+    type = EFC_PRG_HWORD;
+    data = 0x5aa5;
+    ret = EFC_SingleProgram(addr, type, data);
+    printf("addr %x %x ret %d\n", addr, REG16(addr), ret);
+
+    addr = nvr_addr;
+    type = EFC_PRG_WORD;
+    data = 0x5aa5cccc;
+    ret = EFC_SingleProgram(addr, type, data);
+    printf("addr %x %x ret %d\n", addr, REG32(addr), ret);
+
+    //write e2prom
+    addr = e2prom_addr;
+    type = EFC_PRG_BYTE;
+    data = 0x5a;
+    ret = EFC_EEPROMWrite(addr, type, data);
+    printf("addr %x %x ret %d\n", addr, REG8(addr), ret);
+
+    addr = e2prom_addr;
+    type = EFC_PRG_HWORD;
+    data = 0x5aa5;
+    ret = EFC_EEPROMWrite(addr, type, data);
+    printf("addr %x %x ret %d\n", addr, REG16(addr), ret);
+
+    addr = e2prom_addr;
+    type = EFC_PRG_WORD;
+    data = 0x5aa5cccc;
+    ret = EFC_EEPROMWrite(addr, type, data);
+    printf("addr %x %x ret %d\n", addr, REG32(addr), ret);
 
 	return ret;
 }
