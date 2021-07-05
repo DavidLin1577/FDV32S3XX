@@ -11,10 +11,12 @@
 
 #include "lib_include.h"
 #include "shell_port.h"
-
+#include "platform.h"
 
 int main(void)
 {
+	hal_init();
+
 	printf("Hello world\r\n");
 
 	userShellInit();

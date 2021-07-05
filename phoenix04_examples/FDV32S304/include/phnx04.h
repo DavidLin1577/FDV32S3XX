@@ -345,7 +345,7 @@ typedef enum { ERROR = 0, SUCCESS = !ERROR } ErrStatus;
 #define UART2 	           ((UART_Type *)UART2_BASE)
 #define TWC 	           ((TWC_Type *)TWC_BASE)
 #define ADC 	           ((ADC_Type *)ADC_BASE)
-#define LED_Driver 	       ((LED_Driver *)LED_DRIVER_BASE)
+#define LED_Driver 	       ((LED_Driver_Type *)LED_DRIVER_BASE)
 #define SDC 	           ((SDC_Type *)SDC_BASE)
 #define CMP 	           ((CMP_Type *)CMP_BASE)
 #define LVD 	           ((LVD_Type *)LVD_BASE)
