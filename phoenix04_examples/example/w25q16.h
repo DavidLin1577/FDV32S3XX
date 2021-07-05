@@ -1,6 +1,6 @@
 #ifndef __W25Q16_H
-
 #define __W25Q16_H
+
 #include "lib_include.h"
 
 // W25Q80 ID  0XEF13
