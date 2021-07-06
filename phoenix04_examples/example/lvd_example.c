@@ -17,6 +17,8 @@ int lvd_example(void)
 {
 	int temp = 0;
 
+	SYSC->CLKENCFG |= SYSC_CLKENCFG_ANAC | SYSC_CLKENCFG_IOM;
+
 	LVD->CFG |= BITS(8,15);                 // Step1： 配置 LVD.FLT， 设置 LVD 输出结果滤波时间。
 	LVD->CFG &=~(BITS(3,6));
 	LVD->CFG &=~(BITS(1,2));

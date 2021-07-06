@@ -10,26 +10,14 @@
  */
 
 #include "lib_include.h"
+#include "platform.h"
 #include "shell.h"
-
-static void DelayNus(u32 delay)
-{
-    DisableGlobleIRQ();
-    TIM1->CTCG1 = delay & 0xffff;
-    TIM1->CTCG2 = delay >> 16;
-    TIMERS->CON |= TIM_CON_TE_TIM1;
-    do{
-    	PMU_EnterSleep();
-    }while((TIMERS->INTFLAG & (1<<0))==0);
-    asm("nop");
-    TIMERS->INTCLR = (1 << 0);
-    TIMERS->CON &= ~(TIM_CON_TE_TIM1);
-    EnableGlobleIRQ();
-}
 
 int sdc_soft_example(void)
 {
 	int temp_AD;
+
+	SYSC->CLKENCFG |= SYSC_CLKENCFG_ANAC | SYSC_CLKENCFG_IOM;
 
 	SDC->ME_CTL |= BIT(0);                           // Step1：设置SDC.ME_CLT.ANAC_EN为1，开启SDC工作模块。
 	SYSC->ANCLKDIV &= ~(BITS(0, 3));                 // Step2：配置SYSC.ANCLKDIV，设置ADC采样时钟即转换速度即anac_clk_500k=500KHz。

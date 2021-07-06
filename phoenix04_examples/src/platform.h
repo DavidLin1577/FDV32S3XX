@@ -14,5 +14,6 @@
 #include "phnx04.h"
 
 int hal_init(void);
+void DelayNus(u32 delay);
 
 #endif/*__PLATFORM_H__*/

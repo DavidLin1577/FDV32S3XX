@@ -10,21 +10,10 @@
  */
 
 #include "w25q16.h"
+#include "platform.h"
 
 const u8 gWrText[] = {"Ph02 SPIM TEST"};
 u8 gRdText[sizeof(gWrText)];
-
-void DelayNus(u32 wDel) {
-    u32 wCnt;
-    SYSC->CLKENCFG |= SYSC_CLKENCFG_TIM_PCK | SYSC_CLKENCFG_TIM1_CNT;
-    TIMERS->CON &= ~(1 << 0);
-    wCnt = wDel * (8000000 / 1000000);
-    TIM1->CTCG1 = wCnt;
-    TIMERS->CON |= 0x01;
-    while ((TIMERS->INTFLAG & (1 << 0)) == 0)
-        ;
-    TIMERS->INTCLR = (1 << 0);
-}
 
 int spi_example(void)
 {

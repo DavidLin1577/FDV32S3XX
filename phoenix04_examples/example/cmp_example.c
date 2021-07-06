@@ -28,6 +28,8 @@ int cmp_example(int hyssel, int vinsel, int vipsel, int inv)
 
 	printf("hyssel %d, vinsel %d, vipsel %d, inv %d\n", l_hyssel, l_vinsel, l_vipsel, l_inv);
 
+	SYSC->CLKENCFG |= SYSC_CLKENCFG_ANAC | SYSC_CLKENCFG_IOM;
+
 	CMP->CFG &= ~BITS(8,9);        // Step1： 配置 CMP.CFG.HYSSEL， 设置迟滞功能和迟滞大小。
 	CMP->CFG |= (hyssel << 8);
 

@@ -15,6 +15,8 @@
 
 int led_driver_example(void)
 {
+	SYSC->CLKENCFG |= SYSC_CLKENCFG_ANAC | SYSC_CLKENCFG_IOM;
+
 	// Step1： 配置 DCDC.CFG.VSL 为 2’b01， 设置 DCDC 输出电压大小为 5.5V 档。
 	// Step2： 设置 DCDC.CCFG.DCDC_EN 为 1， 打开 DCDC 模块。
 	// Step3： 等待 SDC.ANAC_FLAG.DCDC_VOK 为 1， DCDC 输出电压达到稳定。

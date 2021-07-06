@@ -237,7 +237,7 @@
 
 #define ANAC_WPROT_V0 0x5a5a
 #define ANAC_WPROT_V1 0xa5a5
-#define ANAC_WPT_UNLOCK()                                                                                              \
+#define ANAC_WPT_UNLOCK()                                                                                          \
 {                                                                                                                  \
     ANAC->WPROT = 0x5a5a;                                                                                          \
     ANAC->WPROT = 0xa5a5;                                                                                          \

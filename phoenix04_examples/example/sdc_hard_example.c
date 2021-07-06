@@ -17,6 +17,8 @@ int sdc_hard_example(void)
 {
 	int temp_AD;
 
+	SYSC->CLKENCFG |= SYSC_CLKENCFG_ANAC | SYSC_CLKENCFG_IOM;
+
 	SDC->ME_CTL |= BIT(0);                           // Step1：设置SDC.ME_CLT.ANAC_EN为1，开启SDC工作模块。
 	SYSC->ANCLKDIV &= ~(BITS(0, 3));                 // Step2：配置SYSC.ANCLKDIV，设置ADC采样时钟即转换速度即anac_clk_500k=500KHz。
 	SYSC->ANCLKDIV |= (1 << 0);                      //       ADC_CLK 4分频，2M
