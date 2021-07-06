@@ -1,5 +1,5 @@
 /**
- * @file   system_phnx02.h
+ * @file   system_phnx04.h
  * @author bifie.tang
  * @brief
  * @version 0.1
@@ -9,8 +9,9 @@
  *
  */
 
-#ifndef __SYSTEM_PHNX02_H
-#define __SYSTEM_PHNX02_H
+#ifndef __SYSTEM_PHNX04_H__
+#define __SYSTEM_PHNX04_H__
+
 #ifdef __cplusplus
 extern "C" {
 #endif
