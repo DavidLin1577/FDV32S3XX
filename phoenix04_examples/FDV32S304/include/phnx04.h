@@ -206,14 +206,14 @@ typedef struct {
 
 typedef struct {
     __IO unsigned int REV1[3];    // 00 - 08
-    __IO unsigned int CMP_CFG;    // 0C
-    __IO unsigned int REV2[7];    // 00
+    __IO unsigned int CFG;        // 0C
+    __IO unsigned int REV2[7];    // 10 -28
     __IO unsigned int ANAC_FLAG;  // 2C
 } CMP_Type;
 
 typedef struct {
     __IO unsigned int REV1[3];    // 00 - 1C
-    __IO unsigned int CMP_CFG;    // 20
+    __IO unsigned int CFG;        // 20
     __IO unsigned int REV2[11];   // 00
     __IO unsigned int ANAC_FLAG;  // 50
 } LVD_Type;

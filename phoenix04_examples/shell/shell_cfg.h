@@ -89,7 +89,7 @@
  * @brief shell格式化输出的缓冲大小
  *        为0时不使用shell格式化输出
  */
-#define     SHELL_PRINT_BUFFER          32
+#define     SHELL_PRINT_BUFFER          64
 
 /**
  * @brief 获取系统时间(ms)
