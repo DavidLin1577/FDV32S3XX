@@ -4,13 +4,13 @@
 
 int hal_init(void)
 {
-	// ³õÊ¼»¯Timer1
+	// åˆå§‹åŒ–Timer1
     SYSC->CLKENCFG |= SYSC_CLKENCFG_TIM_PCK | SYSC_CLKENCFG_TIM1_CNT;
 	SYSC->TIMCLKDIV = SystemCoreClock / 1000000 - 1; // 1M
-	TIMERS->INTCLR |= BIT(0); // ÇåTIMER1ÖÐ¶Ï±ê¼Ç
-    // 32Î»×ÔÓÉÔËÐÐÄ£Ê½
+	TIMERS->INTCLR |= BIT(0); // æ¸…TIMER1ä¸­æ–­æ ‡è®°
+    // 32ä½è‡ªç”±è¿è¡Œæ¨¡å¼
 	TIM1->CTCG1 = 0;
-	TIMERS->CON |= BIT(0); // Ê¹ÄÜTIMER1
+	TIMERS->CON |= BIT(0); // ä½¿èƒ½TIMER1
 
 	return 0;
 }
