@@ -1,6 +1,6 @@
 /**
  * @file wdt.h
- * @author david lin
+ * @author 
  * @brief
  * @version 1.0
  * @date 2021-06-26
