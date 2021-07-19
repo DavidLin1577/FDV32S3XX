@@ -40,7 +40,7 @@ void LPT_IrqHandler(void)
     LPT_ClrIntFlag();
     printf("tog %x, lpt_count %d\n", tog, LPT_GetCount());
 
-    //ÒÔÏÂÊÇÀûÓÃÏµÍ³¶¨Ê±Æ÷ÑéÖ¤¶¨Ê±×¼È·ĞÔ£¬²»ÊÇ±ØÒªµÄ¹¦ÄÜ´úÂë
+    //ä»¥ä¸‹æ˜¯åˆ©ç”¨ç³»ç»Ÿå®šæ—¶å™¨éªŒè¯å®šæ—¶å‡†ç¡®æ€§ï¼Œä¸æ˜¯å¿…è¦çš„åŠŸèƒ½ä»£ç 
     printf("mtime high %d, low %d\n", REG32(MTIMEHI), REG32(MTIMELO));
 	count = REG32(MTIMELO);
 	diff  = count - prev_count;
