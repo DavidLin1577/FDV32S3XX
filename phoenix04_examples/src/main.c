@@ -13,11 +13,15 @@
 #include "shell_port.h"
 #include "platform.h"
 
+extern int efc_example(void);
+
 int main(void)
 {
     hal_init();
 
 	printf("Hello world\r\n");
+
+	efc_example();
 
 	userShellInit();
 

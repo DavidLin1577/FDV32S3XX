@@ -38,7 +38,7 @@ int sdc_hard_example(void)
 	SDC->ME_CTL |= BIT(0);                           // Step10： 配置 ME_CTL.ANAC_EN 开启测量模块使能。
 	SDC->ME_CTL |= BIT(4);                           // Step11： 配置 ME_CTL.ME_AUTO 启动自动测量模式。
 	SDC->ME_CTL |= (3 << 5);                         // Step12： 配置 ME_CTL.MODE_SEL 选择烟雾检测模式。
-	SDC->ME_CTL |= BIT(3);                           // Step13： 配置 ME_CTL.ME_MODE 选择外设中断触发源作为 ADC 转换触发。
+	SDC->ME_CTL &= ~BIT(3);                          // Step13： 配置 ME_CTL.ME_MODE 选择外设中断触发源作为 ADC 转换触发。
 	while (!(ANAC->ANAC_FLAG & (1 << 0)));           // Step14： 等待 ADC 中断或查询 SDC.ANAC_CFG.ADC_INTF 为 1， 读取 ADC_VALx 寄存器以获取 ADC 转换结果即为烟雾 PDSENSOR 检测值。
 	temp_AD = ADC->AVG_VAL;
 

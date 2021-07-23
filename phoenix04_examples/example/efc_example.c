@@ -38,46 +38,55 @@ int efc_example(void)
     int flash_addr  = 0x10107f00;
     int nvr_addr    = 0x10140200;
     int e2prom_addr = 0x10180000;
+    int readback = 0;
 
     EFC_Init();
 
     //write flash
+    EFC_PageErase(flash_addr);
     addr = flash_addr;
     type = EFC_PRG_BYTE;
     data = 0x5a;
     ret = EFC_SingleProgram(addr, type, data);
-    printf("addr %x %x ret %d\n", addr, REG8(addr), ret);
+    readback = REG8(addr);
+    printf("addr %x %x ret %d\n", addr, readback, ret);
 
     addr = flash_addr;
     type = EFC_PRG_HWORD;
     data = 0x5aa5;
     ret = EFC_SingleProgram(addr, type, data);
-    printf("addr %x %x ret %d\n", addr, REG16(addr), ret);
+    readback = REG16(addr);
+    printf("addr %x %x ret %d\n", addr, readback, ret);
 
     addr = flash_addr;
     type = EFC_PRG_WORD;
     data = 0x5aa5cccc;
     ret = EFC_SingleProgram(addr, type, data);
-    printf("addr %x %x ret %d\n", addr, REG32(addr), ret);
+    readback = REG32(addr);
+    printf("addr %x %x ret %d\n", addr, readback, ret);
 
     //write nvr
+    EFC_PageErase(nvr_addr);
     addr = nvr_addr;
     type = EFC_PRG_BYTE;
     data = 0x5a;
     ret = EFC_SingleProgram(addr, type, data);
-    printf("addr %x %x ret %d\n", addr, REG8(addr), ret);
+    readback = REG8(addr);
+    printf("addr %x %x ret %d\n", addr, readback, ret);
 
     addr = nvr_addr;
     type = EFC_PRG_HWORD;
     data = 0x5aa5;
     ret = EFC_SingleProgram(addr, type, data);
-    printf("addr %x %x ret %d\n", addr, REG16(addr), ret);
+    readback = REG16(addr);
+    printf("addr %x %x ret %d\n", addr, readback, ret);
 
     addr = nvr_addr;
     type = EFC_PRG_WORD;
     data = 0x5aa5cccc;
     ret = EFC_SingleProgram(addr, type, data);
-    printf("addr %x %x ret %d\n", addr, REG32(addr), ret);
+    readback = REG32(addr);
+    printf("addr %x %x ret %d\n", addr, readback, ret);
 
     //write e2prom
     addr = e2prom_addr;
